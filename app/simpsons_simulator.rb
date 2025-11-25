@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'sinatra'
 require 'json'
 
@@ -26,3 +27,19 @@ end
 ###################################
 # FIXME: Implement Lisa endpoints #
 ###################################
+get '/lisa' do
+  "I hope you brought donuts"
+end
+
+post '/lisa' do
+  gift = parse_gift(request.body.read)
+  if gift == 'book'
+    [200, 'I love it']
+  elsif gift == 'saxaphone'
+    [200, 'I REALLY love it']
+  elsif gift == 'video_game'
+    [400, "I hate it"]
+  else
+    [400, "I REALLY hate it"]
+  end
+end
