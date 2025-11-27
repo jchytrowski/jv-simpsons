@@ -2,6 +2,8 @@
 require 'sinatra'
 require 'json'
 
+set :bind, '0.0.0.0'
+
 def parse_gift(raw)
   parsed = JSON.parse(raw)
   parsed['gift']
@@ -25,10 +27,10 @@ post '/homer' do
 end
 
 ###################################
-# FIXME: Implement Lisa endpoints #
+# FIXED: Implement Lisa endpoints #
 ###################################
 get '/lisa' do
-  "I hope you brought donuts"
+  "The baritone sax is the best sax"
 end
 
 post '/lisa' do
