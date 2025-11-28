@@ -1,5 +1,8 @@
+#!/usr/bin/env ruby
 require 'sinatra'
 require 'json'
+
+set :bind, '0.0.0.0'
 
 def parse_gift(raw)
   parsed = JSON.parse(raw)
@@ -24,5 +27,21 @@ post '/homer' do
 end
 
 ###################################
-# FIXME: Implement Lisa endpoints #
+# FIXED: Implement Lisa endpoints #
 ###################################
+get '/lisa' do
+  "The baritone sax is the best sax"
+end
+
+post '/lisa' do
+  gift = parse_gift(request.body.read)
+  if gift == 'book'
+    [200, 'I love it']
+  elsif gift == 'saxaphone'
+    [200, 'I REALLY love it']
+  elsif gift == 'video_game'
+    [400, "I hate it"]
+  else
+    [400, "I REALLY hate it"]
+  end
+end

@@ -8,4 +8,4 @@ test: deps
 	env/bin/python -m unittest tests.py
 
 test-production: deps
-	SIMPSONS_BASE_URL=https://simpsons.jv-magic.com env/bin/python -m unittest tests.py
+	SIMPSONS_BASE_URL=https://simpsons.boise.jv-magic.com env/bin/python -m unittest tests.py
